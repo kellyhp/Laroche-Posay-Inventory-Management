@@ -1,0 +1,247 @@
+[
+    {
+      "productId": "d35623ee-bef6-42b2-8776-2f99f8bb4782",
+      "name": "HYALU B5 PURE HYALURONIC ACID SERUM",
+      "price": 39.99,
+      "rating": 4.25,
+      "stockQuantity": 31234
+    },
+    {
+      "productId": "8ac1ac77-7358-425e-be16-0bdde9f02e59",
+      "name": "TOLERIANE DOUBLE REPAIR FACE MOISTURIZER",
+      "price": 23.99,
+      "rating": 3.56,
+      "stockQuantity": 27402
+    },
+    {
+      "productId": "1afc136b-4d9f-4e8e-aace-8e1df908a404",
+      "name": "10% PURE VITAMIN C SERUM",
+      "price": 44.99,
+      "rating": 4.23,
+      "stockQuantity": 28192
+    },
+    {
+      "productId": "af84cc12-4fea-4f58-aece-f2ce92ca9580",
+      "name": "MELA B3 DARK SPOT SERUM WITH MELASYL™ + NIACINAMIDE",
+      "price": 44.99,
+      "rating": 4.09,
+      "stockQuantity": 23333
+    },
+    {
+      "productId": "86e3bb1c-2f5d-4774-98f3-4df7cddd0a0f",
+      "name": "ANTI-AGING SERUM SET",
+      "price": 110.47,
+      "rating": 4.8,
+      "stockQuantity": 60208
+    },
+    {
+      "productId": "26b017c6-06d8-443f-9b4a-d6b1cee6f4c0",
+      "name": "RETINOL B3 PURE RETINOL SERUM",
+      "price": 44.99,
+      "rating": 4.27,
+      "stockQuantity": 124068
+    },
+    {
+      "productId": "440c9e80-6bf8-4eb3-b2d2-f81936d67de3",
+      "name": "TOLERIANE HYDRATING GENTLE FACIAL CLEANSER",
+      "price": 17.99,
+      "rating": 4.66,
+      "stockQuantity": 23525
+    },
+    {
+      "productId": "98255f4e-40a6-470f-89a5-0792729f8947",
+      "name": "TOLERIANE DOUBLE REPAIR FACIAL MOISTURIZER WITH SPF",
+      "price": 24.99,
+      "rating": 4.82,
+      "stockQuantity": 739009
+    },
+    {
+      "productId": "2a339fb2-f9f3-43bc-a85a-b217a0a38f12",
+      "name": "TOLERIANE PURIFYING FOAMING FACIAL WASH",
+      "price": 17.99,
+      "rating": 4.71,
+      "stockQuantity": 754285
+    },
+    {
+      "productId": "8a8391b2-b4ac-4847-b652-66ffd8d65875",
+      "name": "ANTHELIOS AOX ANTIOXIDANT SERUM WITH SPF 50 SUNSCREEN",
+      "price": 44.99,
+      "rating": 4.6,
+      "stockQuantity": 20240
+    },
+    {
+      "productId": "be2157fb-7454-405e-9511-bf7ba81b7726",
+      "name": "ANTHELIOS MINERAL TINTED SUNSCREEN FOR FACE SPF 50",
+      "price": 37.99,
+      "rating": 4.65,
+      "stockQuantity": 39124
+    },
+    {
+      "productId": "fdf1ba3d-fa06-4ce5-90ff-d081c5d37176",
+      "name": "LIPIKAR AP+M TRIPLE REPAIR BODY MOISTURIZER FOR DRY SKIN",
+      "price": 19.99,
+      "rating": 4.39,
+      "stockQuantity": 19884
+    },
+    {
+      "productId": "afded6df-058f-477d-9878-e0e0b1d3dff3",
+      "name": "ANTHELIOS ULTRA LIGHT FLUID FACIAL SUNSCREEN SPF 60",
+      "price": 32.99,
+      "rating": 4.38,
+      "stockQuantity": 67658
+    },
+    {
+      "productId": "daa29167-82a7-474b-9687-b8b903e7ec69",
+      "name": "EFFACLAR SALICYLIC ACID ACNE TREATMENT SERUM",
+      "price": 42.99,
+      "rating": 4.37,
+      "stockQuantity": 20143
+    },
+    {
+      "productId": "ccb83982-71f3-4497-bad8-7e64c6920dc6",
+      "name": "REDERMIC R RETINOL EYE CREAM",
+      "price": 49.99,
+      "rating": 4.42,
+      "stockQuantity": 38596
+    },
+    {
+      "productId": "1936d406-e89e-40e4-bff7-1827532269d4",
+      "name": "SUBSTIANE RICHE ANTI-AGING CREAM",
+      "price": 58.99,
+      "rating": 4.21,
+      "stockQuantity": 63658
+    },
+    {
+      "productId": "c849a535-5f8b-47e3-889c-015693a644ac",
+      "name": "THERMAL SPRING WATER FACE MIST",
+      "price": 19.99,
+      "rating": 4.49,
+      "stockQuantity": 6557
+    },
+    {
+      "productId": "0c3e80ee-59b3-4fc4-b760-8b07acc2d3ae",
+      "name": "ANTHELIOS UV HYDRA HYDRATING FACE SUNSCREEN SPF 50 WITH HYALURONIC ACID",
+      "price": 39.99,
+      "rating": 4.73,
+      "stockQuantity": 263383
+    },
+    {
+      "productId": "d8f5bee3-f3eb-4071-a124-6b857e0fd798",
+      "name": "CICAPLAST BALM B5 FOR DRY SKIN IRRITATIONS",
+      "price": 16.99,
+      "rating": 4.71,
+      "stockQuantity": 61812
+    },
+    {
+      "productId": "8d15de86-0e4a-4414-9166-7a33610202d3",
+      "name": "EFFACLAR DUO ACNE SPOT TREATMENT",
+      "price": 35.99,
+      "rating": 4.79,
+      "stockQuantity": 60774
+    },
+    {
+      "productId": "ea8fd0b9-c2d9-4d43-9c23-44cb99d079bb",
+      "name": "DERMALLERGO SENSITIVE SKIN MOISTURIZER SET",
+      "price": 79.02,
+      "rating": 3.71,
+      "stockQuantity": 90107
+    },
+    {
+      "productId": "25d01c80-bca1-4a00-b1d0-0fbd39ff9e89",
+      "name": "TOLERIANE WATERPROOF MASCARA",
+      "price": 26.00,
+      "rating": 3.78,
+      "stockQuantity": 95695
+    },
+    {
+      "productId": "1d6df6e3-b7ea-4507-9d66-87c6ee8ed5b9",
+      "name": "TOLERIANE ROSALIAC AR FACE CREAM FOR VISIBLE REDNESS",
+      "price": 30.99,
+      "rating": 3.71,
+      "stockQuantity": 34530
+    },
+    {
+      "productId": "000a8c23-5bca-436c-a216-4e747a94c511",
+      "name": "TOLERIANE DERMALLERGO EYE CREAM",
+      "price": 29.99,
+      "rating": 4.6,
+      "stockQuantity": 967173
+    },
+    {
+      "productId": "c5b600dc-6bfb-492a-b335-c3cc8c707959",
+      "name": "LIPIKAR AP+ GENTLE FOAMING CLEANSING OIL",
+      "price": 17.99,
+      "rating": 4.43,
+      "stockQuantity": 16208
+    },
+    {
+      "productId": "9d5fafbc-312b-47e8-ada1-283918f0c3b5",
+      "name": "LIPIKAR UREA 10% ROUGHNESS SMOOTHING LOTION",
+      "price": 22.99,
+      "rating": 4.74,
+      "stockQuantity": 33021
+    },
+    {
+      "productId": "0114d5d4-ae48-46fa-b0ca-afe60eb88add",
+      "name": "EFFACLAR ACNE TREATMENT SYSTEM",
+      "price": 33.99,
+      "rating": 4.13,
+      "stockQuantity": 36992
+    },
+    {
+      "productId": "e5b0da8c-148d-4680-b262-8609fb8a10da",
+      "name": "EFFACLAR ADAPALENE GEL 0.1% TOPICAL RETINOID FOR ACNE",
+      "price": 35.99,
+      "rating": 4.5,
+      "stockQuantity": 63092
+    },
+    {
+      "productId": "2be5b024-2c96-4f29-912c-c6f36353f799",
+      "name": "EFFACLAR ASTRINGENT TONER FOR OILY SKIN",
+      "price": 25.99,
+      "rating": 4.26,
+      "stockQuantity": 35383
+    },
+    {
+      "productId": "fcf2e432-62a3-4b6f-a34d-36e42a12272e",
+      "name": "EFFACLAR SHINE CONTROL CLAY MASK",
+      "price": 21.99,
+      "rating": 4.34,
+      "stockQuantity": 88242
+    },
+    {
+      "productId": "fc4c81e5-f1ac-40f5-8c6f-da3fbad5599d",
+      "name": "CICAPLAST BALM B5 UV SPF 50",
+      "price": 19.99,
+      "rating": 4.49,
+      "stockQuantity": 86782
+    },
+    {
+      "productId": "07238d8e-0037-4972-87ca-0df206ee3e42",
+      "name": "CICAPLAST GEL B5 SKIN PROTECTANT",
+      "price": 22.99,
+      "rating": 3.42,
+      "stockQuantity": 63344
+    },
+    {
+      "productId": "154b7860-23a2-4564-ad99-1745ab7122ef",
+      "name": "CICAPLAST LIPS HYDRATION RESTORE LIP BALM",
+      "price": 9.99,
+      "rating": 4.34,
+      "stockQuantity": 45487
+    },
+    {
+      "productId": "8d4bf814-65d4-4df4-84cc-68911d925fdf",
+      "name": "ANTHELIOS GENTLE LOTION KIDS SUNSCREEN SPF 50",
+      "price": 32.99,
+      "rating": 4.79,
+      "stockQuantity": 63856
+    },
+    {
+      "productId": "a52bf1bd-3d35-4cd2-849a-354e3952e2d2",
+      "name": "ANTHELIOS COOLING WATER SUNSCREEN LOTION SPF 60",
+      "price": 37.99,
+      "rating": 4.66,
+      "stockQuantity": 24630
+    }
+  ]

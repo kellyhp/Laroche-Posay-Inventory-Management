@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  @apply text-sm;
+  @apply bg-gray-500;
+  @apply text-gray-900;
+}
+
+:root {
+  --color-primary: theme('colors.gray.900');
+  --color-secondary: theme('colors.gray.200');
+  --box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --color-primary: theme('colors.gray.300');
+  --color-secondary: theme('colors.gray.900');
+  --box-shadow:none;
+}
+
+.css-1y99dq9-MuiDataGrid-root .MuiDataGrid-container--top [role=row], .css-1y99dq9-MuiDataGrid-root .MuiDataGrid-container--bottom [role=row] {
+  background-color: none !important;
+}
+
+@media (min-width: 768px) {
+  .custom-grid-rows {
+    grid-template-rows: repeat(8, 20vh);
+  }
+}
+
+@media (min-width: 1280px) {
+  .custom-grid-rows { 
+    grid-template-rows: repeat(8, 7.5vh);
+  }
+}
