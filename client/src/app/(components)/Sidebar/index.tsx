@@ -81,12 +81,15 @@ const Sidebar = () => {
           isSidebarCollapsed ? "px-5" : "px-8"
         }`}
       >
+        <h1 className={`${
+            isSidebarCollapsed ? "block" : "hidden"
+          } font-bold`}>LRP</h1>
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
           } font-extrabold text-2xl`}
         >
-          Inventory
+          La Roche Posay Inventory
         </h1>
 
         <button

@@ -113,7 +113,7 @@ const Expenses = () => {
               <select
                 id="category"
                 name="category"
-                className={classNames.selectInput}
+                className={`${classNames.selectInput} dark:text-white`}
                 defaultValue="All"
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >
@@ -132,7 +132,7 @@ const Expenses = () => {
                 type="date"
                 id="start-date"
                 name="start-date"
-                className={classNames.selectInput}
+                className={`${classNames.selectInput} dark:text-white`}
                 onChange={(e) => setStartDate(e.target.value)}
               />
             </div>
@@ -145,7 +145,7 @@ const Expenses = () => {
                 type="date"
                 id="end-date"
                 name="end-date"
-                className={classNames.selectInput}
+                className={`${classNames.selectInput} dark:text-white`}
                 onChange={(e) => setEndDate(e.target.value)}
               />
             </div>

@@ -6,9 +6,8 @@ import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useGetProductsQuery } from "@/state/api";
-import debounce from "lodash.debounce"; // Optional for debouncing
+import debounce from "lodash.debounce";
 
-// Define a type for Product
 type Product = {
   productId: string;
   name: string;
@@ -21,11 +20,10 @@ const Navbar = () => {
   );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
-  const [searchTerm, setSearchTerm] = useState<string>(""); // Explicit type for searchTerm
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]); // Define the type for filteredProducts
-  const { data: products = [], isLoading } = useGetProductsQuery(); // Ensure data has a fallback to an empty array if undefined
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const { data: products = [], isLoading } = useGetProductsQuery();
 
-  // Toggle sidebar and dark mode
   const toggleSidebar = () => {
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
   };
@@ -33,7 +31,6 @@ const Navbar = () => {
     dispatch(setIsDarkMode(!isDarkMode));
   };
 
-  // Debounced search handler to improve performance
   const handleSearch = debounce((searchValue: string) => {
     if (searchValue.trim()) {
       const filtered = products.filter((product: Product) =>
@@ -45,7 +42,6 @@ const Navbar = () => {
     }
   }, 300);
 
-  // Handle search input
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);

@@ -24,7 +24,6 @@ const Settings = () => {
   const [userSettings, setUserSettings] = React.useState<UserSetting[]>(mockSettings);
 
   useEffect(() => {
-    // Update the dark mode toggle based on global state
     const settingsCopy = [...userSettings];
     const darkModeSettingIndex = settingsCopy.findIndex(setting => setting.label === "Dark Mode");
     if (darkModeSettingIndex !== -1) {

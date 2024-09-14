@@ -41,7 +41,7 @@ type EditProductModalProps = {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 rounded dark:text-white"
               />
             </div>
             <div>
@@ -50,7 +50,7 @@ type EditProductModalProps = {
                 type="number"
                 value={price}
                 onChange={(e) => setPrice(Number(e.target.value))}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 rounded dark:text-white"
               />
             </div>
             <div>
@@ -59,7 +59,7 @@ type EditProductModalProps = {
                 type="number"
                 value={stockQuantity}
                 onChange={(e) => setStockQuantity(Number(e.target.value))}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 rounded dark:text-white"
               />
             </div>
             <div>
@@ -68,7 +68,7 @@ type EditProductModalProps = {
                 type="number"
                 value={rating}
                 onChange={(e) => setRating(Number(e.target.value))}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 rounded dark:text-white"
                 min={0}
                 max={5}
               />

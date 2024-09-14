@@ -2,10 +2,16 @@ import { useGetDashboardMetricsQuery } from '@/state/api'
 import { ShoppingBag } from 'lucide-react';
 import Rating from '../(components)/Rating';
 import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react'
 
 const CardPopularProducts = () => {
-  const {data: dashboardMetrics, isLoading} = useGetDashboardMetricsQuery();  
+  const {data: dashboardMetrics, isLoading} = useGetDashboardMetricsQuery(); 
+  
+  const getImagePath = (productName: string) => {
+    const encodedName = encodeURIComponent(productName);
+    return `/index/${encodedName}.webp`;
+  };
 
   return (
     <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl pb-16">
@@ -25,7 +31,13 @@ const CardPopularProducts = () => {
                 className="flex items-center justify-between gap-3 px-5 py-7 border-b"
               >
                 <div className="flex items-center gap-3">
-                    <div> img </div>
+                  <Image
+                    src={getImagePath(product.name)}
+                    alt={product.name}
+                    width={50}
+                    height={50}
+                    className="object-cover rounded"
+                  />
                   <div className="flex flex-col justify-between gap-1">
                     <div className="font-bold text-gray-700">
                       {product.name}

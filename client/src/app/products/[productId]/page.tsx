@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useGetProductByIdQuery, useUpdateProductMutation, useDeleteProductMutation } from '@/state/api';
 import EditProductIdModal from './EditProductIdModal';
-import DeleteProductModal from '../DeleteProductModal';
+import DeleteProductModal from './DeleteProductModal';
 import Rating from '@/app/(components)/Rating';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -23,10 +23,15 @@ const ProductPage = () => {
     rating: product?.rating ?? 0
   };
 
+  const getImagePath = (productName: string) => {
+    const encodedName = encodeURIComponent(productName);
+    return `/index/${encodedName}.webp`;
+  };
+
   const handleEditConfirm = async (editData: { name: string; price: number; stockQuantity: number; rating: number }) => {
     try {
       const updatePayload = {
-        productId: product?.productId || '', // Ensure productId is provided
+        productId: product?.productId || '',
         productData: {
           name: editData.name,
           price: editData.price,
@@ -59,13 +64,13 @@ const ProductPage = () => {
       {/* PRODUCT DETAILS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Placeholder image */}
-        <div className="w-full h-64 bg-gray-200 flex justify-center items-center">
+        <div className="w-full h-64 flex justify-center items-center">
           <Image
-            src="/placeholder.png"
+            src={getImagePath(product.name)}
             alt="Product image"
-            width={200}
-            height={200}
-            className="object-cover"
+            width={250}
+            height={250}
+            className="object-cover shadow rounded-lg"
           />
         </div>
 

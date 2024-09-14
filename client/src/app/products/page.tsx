@@ -1,14 +1,12 @@
 "use client";
 
-import { useCreateProductMutation, useGetProductsQuery, useUpdateProductMutation, useDeleteProductMutation } from "@/state/api";
+import { useCreateProductMutation, useGetProductsQuery } from "@/state/api";
 import { PlusCircleIcon, SearchIcon } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import Header from "@/app/(components)/Header";
 import Rating from "@/app/(components)/Rating";
 import CreateProductModal from "./CreateProductModal";
-import EditProductModal from "./EditProductModal";
-import DeleteProductModal from "./DeleteProductModal";
 import Image from "next/image";
 
 export interface Product {
@@ -29,38 +27,14 @@ export interface ProductFormData {
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const { data: products, isLoading, isError, refetch } = useGetProductsQuery();
   const [createProduct] = useCreateProductMutation();
-  const [updateProduct] = useUpdateProductMutation();
-  const [deleteProduct] = useDeleteProductMutation();
 
   const handleCreateProduct = async (productData: ProductFormData) => {
     await createProduct(productData);
-    refetch(); // Refresh the product list after creation
+    refetch();
     setIsModalOpen(false);
-  };
-
-  const handleEditProduct = async (productData: ProductFormData) => {
-    if (selectedProduct) {
-      await updateProduct({
-        productId: selectedProduct.productId,
-        productData
-      });
-      refetch(); // Refresh the product list after update
-      setIsEditModalOpen(false);
-      setSelectedProduct(null);
-    }
-  };
-
-  const handleDeleteProduct = async (productId: string) => {
-    await deleteProduct(productId);
-    refetch(); // Refresh the product list after deletion
-    setIsDeleteModalOpen(false);
-    setSelectedProduct(null);
   };
 
   if (isLoading) {
@@ -75,10 +49,14 @@ const Products = () => {
     );
   }
 
-  // Filter products based on search term
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const getImagePath = (productName: string) => {
+    const encodedName = encodeURIComponent(productName);
+    return `/index/${encodedName}.webp`;
+  };
 
   return (
     <div className="mx-auto pb-5 w-full">
@@ -117,8 +95,13 @@ const Products = () => {
               className="border shadow rounded-md p-4 max-w-full w-full mx-auto"
             >
               <div className="flex flex-col items-center">
-                <div> img
-                </div>
+                <Image
+                  src={getImagePath(product.name)}
+                  alt="Product image"
+                  width={200}
+                  height={200}
+                  className="object-cover shadow rounded-lg my-5"
+                />
                 <h3 className="text-lg text-gray-900 font-semibold">
                   {product.name}
                 </h3>
@@ -131,27 +114,6 @@ const Products = () => {
                     <Rating rating={product.rating} />
                   </div>
                 )}
-                {/* Edit/Delete Buttons */}
-                <div className="mt-4 flex space-x-2">
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={() => {
-                      setSelectedProduct(product);
-                      setIsEditModalOpen(true);
-                    }}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={() => {
-                      setSelectedProduct(product);
-                      setIsDeleteModalOpen(true);
-                    }}
-                  >
-                    Delete
-                  </button>
-                </div>
               </div>
             </Link>
           ))
@@ -168,30 +130,6 @@ const Products = () => {
         onClose={() => setIsModalOpen(false)}
         onCreate={handleCreateProduct}
       />
-
-      {/* Edit Product Modal */}
-      {selectedProduct && (
-        <EditProductModal
-          isOpen={isEditModalOpen}
-          onClose={() => setIsEditModalOpen(false)}
-          product={selectedProduct}
-          onEdit={handleEditProduct}
-        />
-      )}
-
-      {/* Delete Product Modal */}
-      {selectedProduct && (
-        <DeleteProductModal
-          isOpen={isDeleteModalOpen}
-          onClose={() => setIsDeleteModalOpen(false)}
-          onDelete={() => {
-            if (selectedProduct) {
-              handleDeleteProduct(selectedProduct.productId);
-            }
-          }}
-          productName={selectedProduct.name}
-        />
-      )}
     </div>
   );
 };
