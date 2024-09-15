@@ -17,7 +17,7 @@ const DeleteUserModal: React.FC<DeleteUserModalProps> = ({ isOpen, onClose, onDe
     <Dialog open={isOpen} onClose={onClose}>
       <DialogTitle>Delete User</DialogTitle>
       <DialogContent>
-        <p>Are you sure you want to delete user "{userName}"?</p>
+        <p>Are you sure you want to delete user &quot;{userName}&quot;?</p>
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>

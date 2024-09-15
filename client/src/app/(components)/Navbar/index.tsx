@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "../../../state";
 import { Bell, Menu, Moon, Settings, Sun } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useGetProductsQuery } from "@/state/api";
 import debounce from "lodash.debounce";
 
@@ -22,11 +22,15 @@ const Navbar = () => {
 
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
   const { data: products = [], isLoading } = useGetProductsQuery();
+
+  const suggestionsRef = useRef<HTMLDivElement>(null);
 
   const toggleSidebar = () => {
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
   };
+
   const toggleDarkMode = () => {
     dispatch(setIsDarkMode(!isDarkMode));
   };
@@ -48,6 +52,42 @@ const Navbar = () => {
     handleSearch(value);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (highlightedIndex === null || highlightedIndex === filteredProducts.length - 1) {
+        setHighlightedIndex(0);
+      } else {
+        setHighlightedIndex(prevIndex => prevIndex !== null ? prevIndex + 1 : 0);
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (highlightedIndex === null || highlightedIndex === 0) {
+        setHighlightedIndex(filteredProducts.length - 1);
+      } else {
+        setHighlightedIndex(prevIndex => prevIndex !== null ? prevIndex - 1 : filteredProducts.length - 1);
+      }
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (highlightedIndex !== null && filteredProducts[highlightedIndex]) {
+        window.location.href = `/products/${filteredProducts[highlightedIndex].productId}`;
+      }
+    }
+  };
+
+  useEffect(() => {
+    setHighlightedIndex(null);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    if (suggestionsRef.current && highlightedIndex !== null) {
+      const suggestion = suggestionsRef.current.children[highlightedIndex] as HTMLElement;
+      if (suggestion) {
+        suggestionsRef.current.scrollTop = suggestion.offsetTop - suggestionsRef.current.clientHeight / 2 + suggestion.clientHeight / 2;
+      }
+    }
+  }, [highlightedIndex]);
+
   return (
     <div className="flex justify-between items-center w-full mb-7">
       {/* LEFT SIDE */}
@@ -66,6 +106,7 @@ const Navbar = () => {
             className="pl-10 pr-4 py-2 w-full border-2 border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500"
             value={searchTerm}
             onChange={handleSearchInput}
+            onKeyDown={handleKeyDown}
           />
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Bell className="text-gray-500" size={20} />
@@ -73,12 +114,16 @@ const Navbar = () => {
 
           {/* SEARCH SUGGESTIONS */}
           {searchTerm && filteredProducts.length > 0 && (
-            <div className="absolute top-12 left-0 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10 max-h-60 overflow-auto">
-              {filteredProducts.map((product) => (
+            <div
+              className="absolute top-12 left-0 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10 max-h-60 overflow-auto"
+              ref={suggestionsRef}
+            >
+              {filteredProducts.map((product, index) => (
                 <Link
                   key={product.productId}
-                  href = {`/products/${product.productId}`}
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  href={`/products/${product.productId}`}
+                  className={`block px-4 py-2 ${index === highlightedIndex ? 'bg-gray-100' : 'hover:bg-gray-100'}`}
+                  onMouseEnter={() => setHighlightedIndex(index)}
                 >
                   {product.name}
                 </Link>

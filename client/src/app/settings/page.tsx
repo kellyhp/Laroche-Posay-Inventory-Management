@@ -30,7 +30,7 @@ const Settings = () => {
       settingsCopy[darkModeSettingIndex].value = isDarkMode;
       setUserSettings(settingsCopy);
     }
-  }, [isDarkMode]);
+  }, [isDarkMode]);  
 
   const handleToggleChange = (index: number) => {
     const settingsCopy = [...userSettings];

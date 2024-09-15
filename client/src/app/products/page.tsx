@@ -7,6 +7,7 @@ import Link from "next/link";
 import Header from "@/app/(components)/Header";
 import Rating from "@/app/(components)/Rating";
 import CreateProductModal from "./CreateProductModal";
+import Pagination from "../(components)/Pagination";
 import Image from "next/image";
 
 export interface Product {
@@ -119,7 +120,7 @@ const Products = () => {
           ))
         ) : (
           <div className="text-center text-gray-500">
-            No products found for "{searchTerm}"
+            No products found for &quot;{searchTerm}&quot;
           </div>
         )}
       </div>
