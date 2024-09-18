@@ -10,7 +10,7 @@ const CardPopularProducts = () => {
   
   const getImagePath = (productName: string) => {
     const encodedName = encodeURIComponent(productName);
-    return `/index/${encodedName}.webp`;
+    return `https://s3-inventory-backend.s3.us-east-2.amazonaws.com/${encodedName}.webp`;
   };
 
   return (

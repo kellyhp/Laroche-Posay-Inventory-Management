@@ -28,7 +28,7 @@ const ProductPage = () => {
 
   const getImagePath = (productName: string) => {
     const encodedName = encodeURIComponent(productName);
-    return `/index/${encodedName}.webp`;
+    return `https://s3-inventory-backend.s3.us-east-2.amazonaws.com/${encodedName}.webp`;
   };
 
   const handleEditConfirm = async (editData: { name: string; price: number; stockQuantity: number; rating: number }) => {
