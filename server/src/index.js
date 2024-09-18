@@ -20,6 +20,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cors());
 
+const corsOptions = {
+  origin: 'https://main.d2lwhl65ebhqdq.amplifyapp.com',
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type',
+};
+app.use(cors(corsOptions));
+
 app.use("/dashboard", dashboardRoutes);
 app.use("/products", productRoutes);
 app.use("/expenses", expenseRoutes);
