@@ -7,7 +7,6 @@ import Link from "next/link";
 import Header from "@/app/(components)/Header";
 import Rating from "@/app/(components)/Rating";
 import CreateProductModal from "./CreateProductModal";
-import Pagination from "../(components)/Pagination";
 import Image from "next/image";
 
 export interface Product {

@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const ProductPage = () => {
   const pathname = usePathname();
-  const productId = pathname.split('/').pop();
+  const productId = pathname.split('/').pop() as string;
 
   const { data: product, isLoading, isError } = useGetProductByIdQuery(productId);
   const [updateProduct] = useUpdateProductMutation();
@@ -19,8 +19,11 @@ const ProductPage = () => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const productWithDefaults = {
-    ...product,
-    rating: product?.rating ?? 0
+    productId: product?.productId || '',
+    name: product?.name || '',
+    price: product?.price || 0,
+    stockQuantity: product?.stockQuantity || 0,
+    rating: product?.rating ?? 0,
   };
 
   const getImagePath = (productName: string) => {
@@ -31,13 +34,13 @@ const ProductPage = () => {
   const handleEditConfirm = async (editData: { name: string; price: number; stockQuantity: number; rating: number }) => {
     try {
       const updatePayload = {
-        productId: product?.productId || '',
+        productId: productWithDefaults.productId,
         productData: {
           name: editData.name,
           price: editData.price,
           stockQuantity: editData.stockQuantity,
-          rating: editData.rating
-        }
+          rating: editData.rating,
+        },
       };
   
       await updateProduct(updatePayload);
@@ -45,11 +48,11 @@ const ProductPage = () => {
     } catch (error) {
       console.error('Error updating product:', error);
     }
-  };  
+  };
 
   const handleDeleteConfirm = async () => {
     try {
-      await deleteProduct(product?.productId || '');
+      await deleteProduct(productWithDefaults.productId);
       window.location.href = '/products';
     } catch (error) {
       console.error('Error deleting product:', error);
@@ -63,10 +66,10 @@ const ProductPage = () => {
     <div className="container mx-auto py-10 px-4">
       {/* PRODUCT DETAILS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Placeholder image */}
+        {/* Product image */}
         <div className="w-full h-64 flex justify-center items-center">
           <Image
-            src={getImagePath(product.name)}
+            src={getImagePath(product.name || '')}
             alt="Product image"
             width={250}
             height={250}
@@ -77,7 +80,7 @@ const ProductPage = () => {
         {/* Product Info */}
         <div className="space-y-4">
           <h1 className="text-3xl font-bold">{product.name}</h1>
-          <p className="text-xl font-semibold text-gray-700">${product.price.toFixed(2)}</p>
+          <p className="text-xl font-semibold text-gray-700">${product.price?.toFixed(2)}</p>
 
           {/* Stock */}
           {product.stockQuantity && (
@@ -125,7 +128,7 @@ const ProductPage = () => {
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
         onDelete={handleDeleteConfirm}
-        productName={product.name}
+        productName={productWithDefaults.name}
       />
     </div>
   );

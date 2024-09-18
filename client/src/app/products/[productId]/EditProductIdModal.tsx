@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from '@/app/(components)/Modal';
+import { Product } from '@/state/api';
 
 export interface ProductFormData {
   name: string;
